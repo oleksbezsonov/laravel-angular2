@@ -1,0 +1,195 @@
+/**
+ * For some reason the component styles are not applied. Lets define them here for now
+ */
+
+.twitter-icon {
+    padding-top: 10px;
+    padding-right: 12px;
+    padding-left: 30px;
+}
+
+.profile-name{
+    font-size: 1.5em;
+}
+.profile-list{
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 18px;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+.profile-list h1{
+    font-size: 2.5em;
+    color: #930303;
+}
+
+.profile-list h2{
+    font-size: 3.2em;
+}
+
+/**
+ *  Hide wording on small devices and reset the title
+ */
+@media (max-width: 770px) {
+  .initial-wording {
+    display: none;
+  }
+  .profile-name{
+        font-size: 1em;
+    }
+  .profile-list h1 {
+    font-size: 1em;
+  }
+}
+
+/**
+ * Override some bootstrap styles to make the page fit the whole screen
+ */
+
+ @media (min-width: 1200px){
+     .container {
+         width: 100%;
+     }
+    .col-lg-3 {
+        width: 20% !important;
+    }
+
+    .dropdown-menu {
+        max-height: 600px;
+        overflow: scroll;
+        overflow-x: hidden;
+    }
+}
+
+.carousel-caption a{
+    color: white !important;
+    text-decoration: none !important;
+}
+
+/**
+ * Hide call to action in desktop devices:
+ */
+  @media (min-width: 770px) {
+     .mobile-call-to-action {
+         display: none;
+     }
+     
+     .profile-list h1 {
+         font-size: 16px;
+     }
+ }
+ 
+ .mobile-call-to-action {
+     text-align: center;
+ }
+ 
+ .mobile-call-to-action .button-send-text {
+     width: 60%;
+     height: 8%;
+ }
+
+ /*
+ .online-tag {
+    color: white;
+    position: absolute;
+    background-color: green;
+    width: 100px;
+    transform: rotate(38deg);
+    left: 194px;
+    top: 13px;
+    text-align: center;
+ }
+ */
+
+ a.disabled {
+     pointer-events: none;
+     cursor: default;
+ }
+ 
+ /**
+  * top corner ribbon
+  * http://www.inserthtml.com/2012/03/creating-css-image-ribbons/
+  *
+  * Format:
+  *
+  *  <div class="side-corner-tag">
+  *      <img src="1.jpg" alt="" />
+  *      <p><span>newest</span></p> 
+  *  </div>
+  */
+ .side-corner-tag {
+    position: relative;
+    color: #fff;
+    display: inline-block;
+    padding: 5px;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    font-weight: 900;
+} 
+ 
+.side-corner-tag span p.available-tag {
+    position: absolute;
+    display: inline-block;
+    right: -25px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.2), inset 0px 5px 30px rgba(255,255,255,0.2);
+    text-align: center;
+    /*text-transform: uppercase;*/
+    top: 6px;
+    background: green;
+    width: 100px;
+    padding: 3px 10px;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    content: 'online';
+} 
+
+.side-corner-tag span p.unavailable-tag {
+    position: absolute;
+    display: inline-block;
+    right: -25px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.2), inset 0px 5px 30px rgba(255,255,255,0.2);
+    text-align: center;
+    /*text-transform: uppercase;*/
+    top: 6px;
+    background: #d93131;
+    width: 100px;
+    padding: 3px 10px;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    content: 'offline';
+} 
+ 
+.side-corner-tag span:before {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: -17px;
+    right: 69px;
+    z-index: -1;
+    border: 17px solid;
+    border-color: transparent transparent #662121 transparent;
+}
+ 
+.side-corner-tag span:after {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 74px;
+    z-index: -1;
+    right: -10px;
+    border: 17px solid;
+    border-color: #662121 transparent transparent transparent;
+}
+
+.phoneNumber {
+    font-size: 3em;
+    font-weight: bold;
+    color: #930303;
+}

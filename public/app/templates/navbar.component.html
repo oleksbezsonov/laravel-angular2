@@ -1,0 +1,94 @@
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" [routerLink]="['/']">UKQuickSex</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a [routerLink]="['/']">Home</a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">FAQ/How to join/etc <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a [routerLink]="['/page/24']">How it works</a>
+                        </li>
+                        <li>
+                            <a [routerLink]="['/page/23']">FAQ</a>
+                        </li>
+                        <li>
+                            <a [routerLink]="['/page/22']">Photographers</a>
+                        </li>
+                        <li>
+                            <a [routerLink]="['/page/21']">Testimonials</a>
+                        </li>
+                        <li>
+                            <a [routerLink]="['/page/20']">How to join?</a>
+                        </li>
+                        <li>
+                            <a [routerLink]="['/page/18']">Sex contact magazines</a>
+                        </li>
+                        <li>
+                            <a href="http://ukquickiesnews.blogspot.co.uk/" target="_blank">Blog</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Local UK Sex Contacts <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li *ngFor="let region of regions">
+                            <a [routerLink]="['/region', region.region_id]">
+                                {{ region.region_name }}
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categories/Different Ages/Types <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li *ngFor="let subcategory of subcategories">
+                            <a [routerLink]="['/subcategory', subcategory.sc_id]">
+                                {{ subcategory.sc_title }}
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a [routerLink]="['/page/10']">Your POSTCODE = SEX LOTTERY</a>
+                </li>
+                <li>
+                    <a [routerLink]="['/page/25']">Terms</a>
+                </li>
+                <li>
+                    <a href="https://twitter.com/ukquicksex" target="_blank" style="padding: 0">
+                        <img src="https://g.twimg.com/dev/documentation/image/Twitter_logo_blue_32.png" class="twitter-icon" alt="">
+                    </a>
+                </li>
+                <!--
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Fetish contacts <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li *ngFor="let subject of subjects">
+                            <a [routerLink]="['/subject', subject.subject_id]">
+                                {{ subject.subject_title }}
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                -->
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
