@@ -1,0 +1,95 @@
+namespace: laravel-angular2
+laravel-angular2:
+  defines: runnable
+  metadata:
+    name: laravel-angular2
+    description: A Laravel framework based application.
+    icon: https://laravel.com/img/logotype.min.svg
+  containers:
+    laravel-angular2:
+      build: .
+  services:
+    laravel-angular2-8000:
+      container: laravel-angular2
+      port: 8000
+      host-port: 8000
+      publish: false
+      protocol: TCP
+  connections:
+    mysql:
+      target: monk-mysql/db
+      service: monk-mysql-db
+    redis:
+      target: redis/redis
+      service: redis-svc
+  variables:
+    app-env:
+      env: APP_ENV
+      type: string
+      description: Determines the environment your application is currently running in.
+      value: production
+    app-debug:
+      env: APP_DEBUG
+      type: bool
+      description: Determines if the application is in debug mode.
+      value: '!!!SETME!!!'
+    app-url:
+      env: APP_URL
+      type: string
+      description: Application url used by the console.
+      value: http://localhost
+    app-key:
+      env: APP_KEY
+      type: string
+      description: Encryption key.
+      value: '!!!SETME!!!'
+    app-log:
+      env: APP_LOG
+      type: string
+      description: Logging configuration.
+      value: single
+    db-connection:
+      env: DB_CONNECTION
+      type: string
+      description: Default database connection name.
+      value: mysql
+    db-host:
+      env: DB_HOST
+      type: string
+      description: Database host.
+      value: <- connection-hostname("mysql")
+    db-port:
+      env: DB_PORT
+      type: string
+      description: Database port.
+      value: <- connection-port("mysql")
+    db-database:
+      env: DB_DATABASE
+      type: string
+      description: Database name.
+      value: forge
+    db-username:
+      env: DB_USERNAME
+      type: string
+      description: Database username.
+      value: forge
+    db-password:
+      env: DB_PASSWORD
+      type: string
+      description: Database password.
+      value: '!!!SETME!!!'
+    redis-host:
+      env: REDIS_HOST
+      type: string
+      description: Redis host.
+      value: <- connection-hostname("redis")
+    redis-password:
+      env: REDIS_PASSWORD
+      type: string
+      description: Redis password.
+      value: '!!!SETME!!!'
+    redis-port:
+      env: REDIS_PORT
+      type: string
+      description: Redis port.
+      value: <- connection-port("redis")
