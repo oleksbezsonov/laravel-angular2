@@ -1,0 +1,83 @@
+namespace: laravel
+laravel:
+  defines: runnable
+  metadata:
+    name: laravel
+    description: A Laravel Framework application.
+    icon: https://laravel.com/img/logomark.min.svg
+  containers:
+    laravel:
+      build: .
+  services:
+    http:
+      container: laravel
+      port: 80
+      host-port: 80
+      publish: false
+      protocol: TCP
+      description: HTTP port
+  connections:
+    database:
+      target: laravel/db
+      service: mssql-svc
+    redis:
+      target: laravel/redis
+      service: redis-svc
+  variables:
+    db-connection:
+      env: DB_CONNECTION
+      type: string
+      description: Database connection type
+      value: mysql
+    db-host:
+      env: DB_HOST
+      type: string
+      description: Database host
+      value: <- connection-hostname("database")
+    db-port:
+      env: DB_PORT
+      type: string
+      description: Database port
+      value: <- connection-port("database")
+    db-database:
+      env: DB_DATABASE
+      type: string
+      description: Database name
+      value: forge
+    db-username:
+      env: DB_USERNAME
+      type: string
+      description: Database username
+      value: forge
+    db-password:
+      env: DB_PASSWORD
+      type: string
+      description: Database password
+      value: '!!!SETME!!!'
+    redis-host:
+      env: REDIS_HOST
+      type: string
+      description: Redis host
+      value: <- connection-hostname("redis")
+    redis-password:
+      env: REDIS_PASSWORD
+      type: string
+      description: Redis password
+      value: '!!!SETME!!!'
+    redis-port:
+      env: REDIS_PORT
+      type: string
+      description: Redis port
+      value: <- connection-port("redis")
+db:
+  defines: runnable
+  inherits: mssql/db
+redis:
+  defines: runnable
+  inherits: redis/redis
+stack:
+  defines: group
+  members:
+    - laravel/laravel
+    - laravel/db
+    - laravel/redis
